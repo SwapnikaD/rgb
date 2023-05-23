@@ -2,4 +2,4 @@
 A small fun project to play with colors: Red, Blue, Green
 
 
-![alt text] https://github.com/SwapnikaD/rgb/blob/main/image.png
+![Alt txt]https://github.com/SwapnikaD/rgb/blob/main/image.png
