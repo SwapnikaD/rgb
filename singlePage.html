@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+	
+		h2 {
+            font-size: 40px;
+            margin-top: 10px;
+        }
+		h2 {
+            font-size: 30px;
+            margin-top: 10px;
+        }
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #eee;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 80%;
+        }
+
+        .color-box {
+            width: 400px;
+            height: 400px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+		.red {
+			color: red;
+		}
+		
+		.blue {
+			color: blue;
+		}
+		
+		.green {
+			color: green;
+		}
+
+        .color-slider {
+            width: 100%;
+        }
+
+        .color-slider input {
+            width: 90%;
+        }
+
+        #color-values, #hex-value {
+            font-size: 20px;
+            margin-top: 10px;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 50%;
+        }
+    </style>
+</head>
+<body>
+    <h2> RGB Explorer!! </h2>
+	<h5> Change the sliders to see the color changing in the box!! </h5>
+    <div class="container">
+        <div id="color-box" class="color-box"></div>
+        <table>
+            <tr>
+                <td><div class="red">Red:</div></td>
+                <td class="color-slider">
+                    <input id="red" type="range" min="0" max="255" value="0" oninput="changeColor()">
+                </td>
+            </tr>
+            <tr>
+                <td><div class="green">Green:</div></td>
+                <td class="color-slider">
+                    <input id="green" type="range" min="0" max="255" value="0" oninput="changeColor()">
+                </td>
+            </tr>
+            <tr>
+                <td><div class="blue">Blue:</div></td>
+                <td class="color-slider">
+                    <input id="blue" type="range" min="0" max="255" value="0" oninput="changeColor()">
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div id="color-values">RGB: (0, 0, 0)</div>
+    <div id="hex-value">Hex: #000000</div>
+    <script>
+        function changeColor() {
+            var red = document.getElementById("red").value;
+            var green = document.getElementById("green").value;
+            var blue = document.getElementById("blue").value;
+            var colorBox = document.getElementById("color-box");
+
+            var rgbColor = "rgb(" + red + "," + green + "," + blue + ")";
+            colorBox.style.backgroundColor = rgbColor;
+
+            document.getElementById("color-values").innerText = "RGB: (" + red + ", " + green + ", " + blue + ")";
+            document.getElementById("hex-value").innerText = "Hex: " + rgbToHex(red, green, blue);
+        }
+
+        function rgbToHex(r, g, b) {
+            return "#" + ((1 << 24) | ((+r << 16) | (+g << 8) | +b)).toString(16).slice(1).toUpperCase();
+        }
+
+        // Initialize with black color
+        changeColor();
+    </script>
+</body>
+</html>

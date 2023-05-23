@@ -1,0 +1,39 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>RGB Explorer</title>
+</head>
+<body>
+    <h2> RGB Explorer!! </h2>
+	<h5> Change the sliders to see the color changing in the box!! </h5>
+    <div class="container">
+        <div id="color-box" class="color-box"></div>
+        <table>
+            <tr>
+                <td><div class="red">Red:</div></td>
+                <td class="color-slider">
+                    <input id="red" type="range" min="0" max="255" value="0" oninput="changeColor()">
+                </td>
+            </tr>
+            <tr>
+                <td><div class="green">Green:</div></td>
+                <td class="color-slider">
+                    <input id="green" type="range" min="0" max="255" value="0" oninput="changeColor()">
+                </td>
+            </tr>
+            <tr>
+                <td><div class="blue">Blue:</div></td>
+                <td class="color-slider">
+                    <input id="blue" type="range" min="0" max="255" value="0" oninput="changeColor()">
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div id="color-values">RGB: (0, 0, 0)</div>
+    <div id="hex-value">Hex: #000000</div>
+
+    <script src="myscript.js"></script>
+</body>
+</html>
