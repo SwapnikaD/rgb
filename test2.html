@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #eee;
+            font-family: Arial, sans-serif;
+        }
+
+        .color-box {
+            width: 500px;
+            height: 500px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .color-slider {
+            margin: 10px 0;
+            width: 80%;
+        }
+
+        .color-slider input {
+            width: 100%;
+        }
+
+        #color-values, #hex-value {
+            font-size: 20px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="color-box" class="color-box"></div>
+    <div class="color-slider">
+        Red: <input id="red" type="range" min="0" max="255" value="0" oninput="changeColor()">
+    </div>
+    <div class="color-slider">
+        Green: <input id="green" type="range" min="0" max="255" value="0" oninput="changeColor()">
+    </div>
+    <div class="color-slider">
+        Blue: <input id="blue" type="range" min="0" max="255" value="0" oninput="changeColor()">
+    </div>
+    <div id="color-values">RGB: (0, 0, 0)</div>
+    <div id="hex-value">Hex: #000000</div>
+    <script>
+        function changeColor() {
+            var red = document.getElementById("red").value;
+            var green = document.getElementById("green").value;
+            var blue = document.getElementById("blue").value;
+            var colorBox = document.getElementById("color-box");
+
+            var rgbColor = "rgb(" + red + "," + green + "," + blue + ")";
+            colorBox.style.backgroundColor = rgbColor;
+
+            document.getElementById("color-values").innerText = "RGB: (" + red + ", " + green + ", " + blue + ")";
+            document.getElementById("hex-value").innerText = "Hex: " + rgbToHex(red, green, blue);
+        }
+
+        function rgbToHex(r, g, b) {
+            return "#" + ((1 << 24) | ((+r << 16) | (+g << 8) | +b)).toString(16).slice(1).toUpperCase();
+        }
+
+        // Initialize with black color
+        changeColor();
+    </script>
+</body>
+</html>

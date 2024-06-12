@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .color-box {
+            width: 200px;
+            height: 200px;
+        }
+    </style>
+</head>
+<body>
+    <div id="color-box" class="color-box"></div>
+    <div>
+        Red: <input id="red" type="range" min="0" max="255" value="0" oninput="changeColor()">
+    </div>
+    <div>
+        Green: <input id="green" type="range" min="0" max="255" value="0" oninput="changeColor()">
+    </div>
+    <div>
+        Blue: <input id="blue" type="range" min="0" max="255" value="0" oninput="changeColor()">
+    </div>
+    <script>
+        function changeColor() {
+            var red = document.getElementById("red").value;
+            var green = document.getElementById("green").value;
+            var blue = document.getElementById("blue").value;
+            var colorBox = document.getElementById("color-box");
+
+            colorBox.style.backgroundColor = "rgb(" + red + "," + green + "," + blue + ")";
+        }
+
+        // Initialize with black color
+        changeColor();
+    </script>
+</body>
+</html>

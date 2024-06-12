@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #eee;
+            font-family: Arial, sans-serif;
+        }
+
+        .color-box {
+            width: 200px;
+            height: 200px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .color-slider {
+            margin: 10px 0;
+            width: 20%;
+        }
+
+        .color-slider input {
+            width: 30%;
+        }
+    </style>
+</head>
+<body>
+    <div id="color-box" class="color-box"></div>
+    <div class="color-slider">
+        Red: <input id="red" type="range" min="0" max="255" value="0" oninput="changeColor()">
+    </div>
+    <div class="color-slider">
+        Green: <input id="green" type="range" min="0" max="255" value="0" oninput="changeColor()">
+    </div>
+    <div class="color-slider">
+        Blue: <input id="blue" type="range" min="0" max="255" value="0" oninput="changeColor()">
+    </div>
+    <script>
+        function changeColor() {
+            var red = document.getElementById("red").value;
+            var green = document.getElementById("green").value;
+            var blue = document.getElementById("blue").value;
+            var colorBox = document.getElementById("color-box");
+
+            colorBox.style.backgroundColor = "rgb(" + red + "," + green + "," + blue + ")";
+        }
+
+        // Initialize with black color
+        changeColor();
+    </script>
+</body>
+</html>
